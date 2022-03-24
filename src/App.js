@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    constructor(props) {
+
+        super(props);
+        this.state = {
+            isToggleOn : false,
+            isHeaderChange : false
+        }
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick () {
+        this.setState(state => ({
+            isToggleOn : !state.isToggleOn,
+            isHeaderChange : !state.isHeaderChange
+        }));
+    }
+
+    render () {
+        return (
+            <div className='App'>
+                <h1 id='macro-polo'>{this.state.isHeaderChange ? 'Polo' : "Macro"}</h1>
+                <button id='macro-polo-toggler' onClick={this.handleClick}>{this.state.isToggleOn ? "Macro" : "Polo"}</button>
+            </div>
+        );
+    }
+
 }
 
 export default App;
