@@ -9,7 +9,6 @@ pipeline {
         echo 'Running frontend with yarn...'
         nodejs('Node-22.23.1') {
           sh 'npm install'
-          sh 'npm build'
         }
       }
     }
