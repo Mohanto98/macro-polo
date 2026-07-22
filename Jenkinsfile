@@ -12,13 +12,6 @@ pipeline {
         }
       }
     }
-    stage("run backend"){
-      steps {
-        echo 'Running backend with gradle...'
-        withGradle() {
-          sh './gradlew -v'
-        }
-      }
-    }
+    
   }
 }
